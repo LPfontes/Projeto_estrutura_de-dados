@@ -70,7 +70,7 @@
          </size>
         </property>
         <property name="text">
-         <string>Lista sequencial</string>
+         <string>Lista Sequencial</string>
         </property>
        </widget>
       </item>
@@ -83,7 +83,7 @@
          </size>
         </property>
         <property name="text">
-         <string>Lista simplesmente encadeada</string>
+         <string>Lista Simplesmente Encadeada</string>
         </property>
        </widget>
       </item>
@@ -96,7 +96,7 @@
          </size>
         </property>
         <property name="text">
-         <string>Lista duplamente encadeada</string>
+         <string>Lista Duplamente Encadeada</string>
         </property>
        </widget>
       </item>
