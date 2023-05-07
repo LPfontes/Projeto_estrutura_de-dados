@@ -57,7 +57,7 @@
          </rect>
         </property>
         <property name="text">
-         <string>lista Duplamente Encadeada</string>
+         <string>Lista Duplamente Encadeada</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
