@@ -83,7 +83,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 17));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -97,10 +97,10 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Modelos de lista", nullptr));
-        buttonListaSeq->setText(QCoreApplication::translate("MainWindow", "Lista sequencial", nullptr));
-        buttonLSE->setText(QCoreApplication::translate("MainWindow", "Lista simplesmente encadeada", nullptr));
-        buttonLDE->setText(QCoreApplication::translate("MainWindow", "Lista duplamente encadeada", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Modelos de Lista", nullptr));
+        buttonListaSeq->setText(QCoreApplication::translate("MainWindow", "Lista Sequencial", nullptr));
+        buttonLSE->setText(QCoreApplication::translate("MainWindow", "Lista Simplesmente Encadeada", nullptr));
+        buttonLDE->setText(QCoreApplication::translate("MainWindow", "Lista Duplamente Encadeada", nullptr));
     } // retranslateUi
 
 };

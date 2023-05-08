@@ -19,6 +19,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -55,12 +56,16 @@ public:
     QVBoxLayout *Layout_menu_dados_2;
     QFrame *frameInputNumeroBusca;
     QLineEdit *input_numero_busca;
-    QFrame *frame_2;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer_2;
     QPushButton *buttonBuscarValor;
+    QSpacerItem *horizontalSpacer;
     QFrame *frameInputPosicaoBusca;
     QLineEdit *input_posicao_busca;
-    QFrame *frameButtonBuscaPos;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer_4;
     QPushButton *buttonBuscarPosicao;
+    QSpacerItem *horizontalSpacer_3;
     QHBoxLayout *horizontalLayout_11;
     QFrame *frameRespostaBusca;
     QLabel *labelRepostaBusca;
@@ -225,16 +230,24 @@ public:
 
         Layout_menu_dados_2->addWidget(frameInputNumeroBusca);
 
-        frame_2 = new QFrame(verticalLayoutWidget_3);
-        frame_2->setObjectName("frame_2");
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        buttonBuscarValor = new QPushButton(frame_2);
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+        buttonBuscarValor = new QPushButton(verticalLayoutWidget_3);
         buttonBuscarValor->setObjectName("buttonBuscarValor");
-        buttonBuscarValor->setGeometry(QRect(50, 0, 121, 30));
         buttonBuscarValor->setMaximumSize(QSize(150, 30));
 
-        Layout_menu_dados_2->addWidget(frame_2);
+        horizontalLayout->addWidget(buttonBuscarValor);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+
+        Layout_menu_dados_2->addLayout(horizontalLayout);
 
         frameInputPosicaoBusca = new QFrame(verticalLayoutWidget_3);
         frameInputPosicaoBusca->setObjectName("frameInputPosicaoBusca");
@@ -251,16 +264,24 @@ public:
 
         Layout_menu_dados_2->addWidget(frameInputPosicaoBusca);
 
-        frameButtonBuscaPos = new QFrame(verticalLayoutWidget_3);
-        frameButtonBuscaPos->setObjectName("frameButtonBuscaPos");
-        frameButtonBuscaPos->setFrameShape(QFrame::StyledPanel);
-        frameButtonBuscaPos->setFrameShadow(QFrame::Raised);
-        buttonBuscarPosicao = new QPushButton(frameButtonBuscaPos);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_4);
+
+        buttonBuscarPosicao = new QPushButton(verticalLayoutWidget_3);
         buttonBuscarPosicao->setObjectName("buttonBuscarPosicao");
-        buttonBuscarPosicao->setGeometry(QRect(50, 0, 121, 31));
         buttonBuscarPosicao->setMaximumSize(QSize(200, 40));
 
-        Layout_menu_dados_2->addWidget(frameButtonBuscaPos);
+        horizontalLayout_2->addWidget(buttonBuscarPosicao);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_3);
+
+
+        Layout_menu_dados_2->addLayout(horizontalLayout_2);
 
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setObjectName("horizontalLayout_11");
@@ -292,7 +313,7 @@ public:
         LSEJanela->setCentralWidget(centralwidget);
         menubar = new QMenuBar(LSEJanela);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1174, 21));
+        menubar->setGeometry(QRect(0, 0, 1174, 17));
         LSEJanela->setMenuBar(menubar);
         statusbar = new QStatusBar(LSEJanela);
         statusbar->setObjectName("statusbar");
@@ -320,7 +341,7 @@ public:
         buttonBuscarValor->setText(QCoreApplication::translate("LSEJanela", "Procurar", nullptr));
         input_posicao_busca->setInputMask(QString());
         input_posicao_busca->setText(QString());
-        buttonBuscarPosicao->setText(QCoreApplication::translate("LSEJanela", "buscar", nullptr));
+        buttonBuscarPosicao->setText(QCoreApplication::translate("LSEJanela", "Buscar", nullptr));
         labelRepostaBusca->setText(QString());
     } // retranslateUi
 

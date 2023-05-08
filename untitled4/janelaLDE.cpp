@@ -91,9 +91,11 @@ void LDEJanela::on_button_inserir_clicked(){
             ui->gridAdicionar->addWidget(resposta.getFrame(),1,1,1,1,Qt::AlignJustify);
             adicionarFinal(resposta.getFrame(),resposta.getGrid(),resposta.getLDEFrame(),1,resposta.getPosicao());
         }
-        ui->buttonInserir->setEnabled(false);
-        ui->buttonRemover->setEnabled(false);
 
+        ui->buttonInserir->setEnabled(false); // desativando os butões de Inserir e Remover
+        ui->buttonRemover->setEnabled(false);
+        ui->buttonBuscarPosicao->setEnabled(false);
+        ui->buttonBuscarValor->setEnabled(false);
 
     }
 
@@ -117,6 +119,8 @@ void LDEJanela::on_button_remover_clicked(){
         timer->setInterval(500); // define o intervalo em milissegundos (1 segundo)
         ui->buttonInserir->setEnabled(false); // desativando os butões de Inserir e Remover
         ui->buttonRemover->setEnabled(false);
+        ui->buttonBuscarPosicao->setEnabled(false);
+        ui->buttonBuscarValor->setEnabled(false);
         if(resposta.getPosicao() == resposta.getLDEFrame()->tamanho()){
             AlterarCorGridRemoverFim(resposta.getMensagem(),resposta.getLDEFrame(),1,resposta.getPosicao(),resposta.getPosicao());
             timer->start();

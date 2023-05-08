@@ -68,6 +68,8 @@ ListaSeqJanela::ListaSeqJanela(QWidget *parent) : // construtor da ListaSeqJanel
     ui->buttonCriaLista->setStyleSheet(*css);
     ui->buttonInserir->setEnabled(false); // desativando os butões de Inserir e Remover
     ui->buttonRemover->setEnabled(false);
+    ui->buttonBuscarValor->setEnabled(false);
+    ui->buttonBuscarPosicao->setEnabled(false);
     //conectado os metodos da janela com os butões
     connect( ui->buttonInserir, &QPushButton::clicked, this, &ListaSeqJanela::on_button_inserir_clicked);
     connect( ui->buttonRemover, &QPushButton::clicked, this, &ListaSeqJanela::on_button_remover_clicked);
@@ -90,6 +92,8 @@ void ListaSeqJanela::on_button_CriarLista_clicked(){ // método que cria a lista
         lista->criarLista(ui->InputTamanhoLista->text().toInt());
         ui->buttonInserir->setEnabled(true); // desativando os butões de Inserir e Remover
         ui->buttonRemover->setEnabled(true);
+        ui->buttonBuscarValor->setEnabled(true);
+        ui->buttonBuscarPosicao->setEnabled(true);
     }else{
         QMessageBox::warning(this, "Aviso", "Valor Inválida");
     }
@@ -121,6 +125,7 @@ void ListaSeqJanela::on_button_inserir_clicked(){ // método que insere o valor 
             timer->setInterval(500); // define o intervalo
             ui->buttonInserir->setEnabled(false); // desativando os butões de Inserir e Remover
             ui->buttonRemover->setEnabled(false);
+
             AlterarCor(frame,timer);
             timer->start();
         }
