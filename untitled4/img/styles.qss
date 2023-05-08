@@ -39,10 +39,9 @@ QFrame#frameValorRemovido {
 /* Titulo do Menu */
 QLabel {
 font-family: "Courier New";
-text-decoration: underline;
 font-weight: bold;
 font-size: 30px;
-color: white;
+color: #ADADAD;
 background-color: none;
 }
 
@@ -148,5 +147,5 @@ color: white;
 }
 
 QFrame#frameAdicionar {
-    background-color: none;
+
 }
