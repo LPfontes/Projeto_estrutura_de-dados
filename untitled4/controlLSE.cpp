@@ -111,7 +111,7 @@ resposta controllistaslse::buscarPosicao(QString posicao){
         resposta.setMensagem(QString("erro lista vazia"));
         return resposta;
     }
-    if(Posicao < 0 || Posicao > lista->tamanho() ){
+    if(Posicao <= 0 || Posicao > lista->tamanho() ){
         resposta.setMensagem(QString("erro posicao invalida"));
         return resposta;
     }

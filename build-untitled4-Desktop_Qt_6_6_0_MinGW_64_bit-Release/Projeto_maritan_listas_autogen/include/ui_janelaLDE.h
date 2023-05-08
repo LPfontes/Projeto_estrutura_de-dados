@@ -74,7 +74,13 @@ public:
     {
         if (LDEJanela->objectName().isEmpty())
             LDEJanela->setObjectName("LDEJanela");
-        LDEJanela->resize(1096, 880);
+        LDEJanela->setWindowModality(Qt::WindowModal);
+        LDEJanela->resize(1260, 903);
+        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(LDEJanela->sizePolicy().hasHeightForWidth());
+        LDEJanela->setSizePolicy(sizePolicy);
         LDEJanela->setMinimumSize(QSize(100, 100));
         centralwidget = new QWidget(LDEJanela);
         centralwidget->setObjectName("centralwidget");
@@ -271,11 +277,9 @@ public:
         frameGrid = new QFrame(centralwidget);
         frameGrid->setObjectName("frameGrid");
         frameGrid->setGeometry(QRect(330, 170, 751, 611));
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(frameGrid->sizePolicy().hasHeightForWidth());
         frameGrid->setSizePolicy(sizePolicy);
+        frameGrid->setMaximumSize(QSize(2500, 2500));
         frameGrid->setFrameShape(QFrame::StyledPanel);
         frameGrid->setFrameShadow(QFrame::Raised);
         frameAdicionar = new QFrame(centralwidget);
@@ -292,7 +296,7 @@ public:
         LDEJanela->setCentralWidget(centralwidget);
         menubar = new QMenuBar(LDEJanela);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1096, 21));
+        menubar->setGeometry(QRect(0, 0, 1260, 21));
         LDEJanela->setMenuBar(menubar);
         statusbar = new QStatusBar(LDEJanela);
         statusbar->setObjectName("statusbar");

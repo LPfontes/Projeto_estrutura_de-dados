@@ -30,7 +30,7 @@ resposta controllistaslde::adicionar(QString posicao,QString valor){
 
 
     }else{
-        if(Posicao < 0 ||  Posicao > lista->tamanho() + 1){
+        if(Posicao <= 0 ||  Posicao > lista->tamanho() + 1){
             resposta.setMensagem(QString("erro posicao invalida"));
             return resposta;
         }
