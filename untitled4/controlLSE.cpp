@@ -144,7 +144,7 @@ resposta controllistaslse::buscarValor(QString valor){
 
     if(posicao >= 1){
 
-        stringValor = new QString("Elemento "+ valor + " contido na posição " + QString::number(posicao));
+        stringValor = new QString("Elemento "+ valor + "<br>" +" contido na posição " + QString::number(posicao));
         resposta.setLSEFrame(frames);
         resposta.setPosicao(posicao);
     }else{

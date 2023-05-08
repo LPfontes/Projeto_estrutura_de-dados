@@ -104,6 +104,7 @@ void LDEJanela::on_button_inserir_clicked(){
 
 void LDEJanela::on_button_remover_clicked(){
     resposta resposta =  ControlLista->remover(ui->input_posicao->text());
+    ui->labelValorRemovido->setText("");
     if(resposta.getMensagem() == "erro lista vazia"){
         QMessageBox::warning(this, "Aviso", "Lista vazia! Adicione um elemento :)");
 

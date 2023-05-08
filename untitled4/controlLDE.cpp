@@ -44,12 +44,15 @@ resposta controllistaslde::adicionar(QString posicao,QString valor){
             }else if(Posicao == lista->tamanho() + 1 ){
             pos = lista->tamanho() + 1;
             resposta.setMensagem("fim lista");
-                }else if(Posicao > lista->tamanho() / 2){
-            pos = Posicao;
-            resposta.setMensagem("via fim lista");
-                }else{
+                }else if(lista->tamanho() / 2 == 0){
+                    pos = Posicao;
+                    resposta.setMensagem("meio lista");
+                }else if( Posicao-1 > lista->tamanho() / 2){
                         pos = Posicao;
-                      resposta.setMensagem("meio lista");
+                        resposta.setMensagem("via fim lista");
+                }else{
+                    pos = Posicao;
+                    resposta.setMensagem("meio lista");
                 }
     }
 

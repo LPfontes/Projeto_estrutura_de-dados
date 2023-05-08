@@ -101,6 +101,7 @@ void LSEJanela::on_button_inserir_clicked(){
 
 void LSEJanela::on_button_remover_clicked(){
     resposta resposta =  ControlLista->remover(ui->input_posicao->text());
+    ui->labelValorRemovido->setText("");
     if(resposta.getMensagem() == "erro lista vazia"){
         QMessageBox::warning(this, "Aviso", "Lista vazia! Adicione um elemento :)");
 
@@ -120,7 +121,6 @@ void LSEJanela::on_button_remover_clicked(){
         ui->buttonBuscarValor->setEnabled(false);
         AlterarCorGridRemover(resposta.getMensagem(),resposta.getLSEFrame(),1,resposta.getPosicao());
         timer->start();
-        ui->labelValorRemovido->setText(resposta.getMensagem());
     }
 
 }
@@ -207,6 +207,7 @@ void LSEJanela::AlterarCorGridRemover(QString mensangem,LSEFrame* frames,int i,i
         ui->buttonRemover->setEnabled(true);
         ui->buttonBuscarPosicao->setEnabled(true);
         ui->buttonBuscarValor->setEnabled(true);
+        ui->labelValorRemovido->setText(mensangem);
 
         ControlLista->atualizarGrid();
     }
