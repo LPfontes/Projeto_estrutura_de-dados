@@ -82,7 +82,7 @@ void LDEJanela::on_button_inserir_clicked(){
             adicionar(resposta.getFrame(),resposta.getGrid(),resposta.getLDEFrame(),1,resposta.getPosicao()-1,resposta.getPosicao());
         }else if(resposta.getMensagem() == "inicio lista"){
             ui->gridAdicionar->addWidget(resposta.getFrame(),1,1,1,1,Qt::AlignJustify);
-            adicionarinicio(resposta.getFrame(),resposta.getGrid(),resposta.getLDEFrame(),resposta.getPosicao());
+            adicionarinicio(resposta.getFrame(),resposta.getGrid(),resposta.getLDEFrame(),1);
         }else if(resposta.getMensagem()=="via fim lista"){
             ui->gridAdicionar->addWidget(resposta.getFrame(),1,1,1,1,Qt::AlignJustify);
             adicionarViaFinal(resposta.getFrame(),resposta.getGrid(),resposta.getLDEFrame(),1,resposta.getPosicao()+1,resposta.getPosicao());
@@ -123,13 +123,17 @@ void LDEJanela::on_button_remover_clicked(){
         ui->buttonBuscarValor->setEnabled(false);
         if(resposta.getPosicao() == resposta.getLDEFrame()->tamanho()){
             AlterarCorGridRemoverFim(resposta.getMensagem(),resposta.getLDEFrame(),1,resposta.getPosicao(),resposta.getPosicao());
-            timer->start();
-            ui->labelValorRemovido->setText(resposta.getMensagem());
-        }else{
-            AlterarCorGridRemover(resposta.getMensagem(),resposta.getLDEFrame(),1,resposta.getPosicao());
-            timer->start();
-            ui->labelValorRemovido->setText(resposta.getMensagem());
-        }
+
+
+        }else if(resposta.getPosicao() > resposta.getLDEFrame()->tamanho() /2){
+            RemoverViaFim(resposta.getMensagem(),resposta.getLDEFrame(),1,resposta.getPosicao());
+
+
+    }else{
+
+         RemoverViaInicio(resposta.getMensagem(),resposta.getLDEFrame(),1,resposta.getPosicao());
+    }
+     timer->start();
     }
 
 }
@@ -186,7 +190,7 @@ void LDEJanela::on_button_BuscarPosicao_clicked(){
     }
 }
 
-void LDEJanela::AlterarCorGridRemover(QString mensangem,LDEFrame* frames,int i,int index){
+void LDEJanela::RemoverViaInicio(QString mensangem,LDEFrame* frames,int i,int index){
     int tempo = 500;
 
     // Cores para os estados da lista
@@ -207,7 +211,7 @@ void LDEJanela::AlterarCorGridRemover(QString mensangem,LDEFrame* frames,int i,i
             frames->elemento(i)->changeColor(corNormal);
             // Chama a função recursivamente para o próximo frame da lista
 
-                AlterarCorGridRemover(mensangem,frames, i+1,index);
+                RemoverViaInicio(mensangem,frames, i+1,index);
 
         });
     }else{// Ativa os botões desativados anteriormente
@@ -216,8 +220,63 @@ void LDEJanela::AlterarCorGridRemover(QString mensangem,LDEFrame* frames,int i,i
         ui->buttonRemover->setEnabled(true);
         ui->buttonBuscarPosicao->setEnabled(true);
         ui->buttonBuscarValor->setEnabled(true);
-
+        ui->labelValorRemovido->setText(mensangem);
         ControlLista->atualizarGrid();
+    }
+
+
+}
+
+void LDEJanela::RemoverViaFim(QString mensangem,LDEFrame* frames,int posicaoAtual,int posicao){
+    int tempo = 500;
+    QString* color;
+    if(posicaoAtual != posicao-1){
+        if(posicaoAtual == posicao){
+
+            QTimer::singleShot(tempo, [=]() {
+                QString* color = new QString("background: #F55348;border-radius: 20px;");
+                frames->elemento(posicaoAtual)->changeColor(color);
+                delete color;
+                ControlLista->atualizarGrid();
+                QTimer::singleShot(tempo, [=]() {
+                    QString* corNormal = new QString("background: #D9D9D9;border-radius: 20px;");
+                    frames->elemento(posicaoAtual)->changeColor(corNormal);
+                    delete corNormal;
+                            QTimer::singleShot(tempo, [=]() {
+                                if(posicaoAtual == 1){
+                                    RemoverViaFim(mensangem,frames,frames->tamanho(),posicao);
+                                }else{
+                                    RemoverViaFim(mensangem,frames,posicaoAtual - 1,posicao);
+                                }
+                            });
+                        });
+                });
+
+        }else{
+            color = new QString("background: #4FC2FA;border-radius: 20px;");
+            frames->elemento(posicaoAtual)->changeColor(color);
+            delete color;
+            QTimer::singleShot(tempo, [=]() {
+                QString* corNormal = new QString("background: #D9D9D9;border-radius: 20px;");
+                frames->elemento(posicaoAtual)->changeColor(corNormal);
+                // Chama a função recursivamente para o próximo frame da lista
+                if(posicaoAtual == 1){
+                    RemoverViaFim(mensangem,frames,frames->tamanho(),posicao);
+                }else{
+                    RemoverViaFim(mensangem,frames,posicaoAtual - 1,posicao);
+                }
+
+            });
+        }
+
+    }else{
+        delete frames->remove(posicao);
+        ui->buttonInserir->setEnabled(true);
+        ui->buttonRemover->setEnabled(true);
+        ui->buttonBuscarPosicao->setEnabled(true);
+        ui->buttonBuscarValor->setEnabled(true);
+        ControlLista->atualizarGrid();
+        ui->labelValorRemovido->setText(mensangem);
     }
 
 
@@ -250,7 +309,7 @@ void LDEJanela::AlterarCorGridRemoverFim(QString mensangem,LDEFrame* frames,int 
             frames->elemento(i)->changeColor(corNormal);
             // Chama a função recursivamente para o próximo frame da lista
 
-            AlterarCorGridRemover(mensangem,frames, posicao,index);
+            AlterarCorGridRemoverFim(mensangem,frames, posicao,index,posicao);
 
         });
     }else{// Ativa os botões desativados anteriormente
@@ -285,7 +344,7 @@ void LDEJanela::adicionar(Frame* frame,QGridLayout * grid,LDEFrame* frames,int p
                         ControlLista->atualizarGrid();
 
                         QTimer::singleShot(tempo, [=]() {
-                            frames->remove(posicao);
+                            delete frames->remove(posicao);
                             ControlLista->atualizarGrid();
                             frames->insere(posicao,frame);
                             ui->gridAdicionar->removeWidget(frame);
@@ -326,17 +385,48 @@ void LDEJanela::adicionar(Frame* frame,QGridLayout * grid,LDEFrame* frames,int p
 }
 void LDEJanela::adicionarinicio(Frame* frame,QGridLayout * grid,LDEFrame* frames,int posicao){
     int tempo = 500;
-    frames->insere(posicao,new Frame(-1));
-    QTimer::singleShot(tempo, [=]() {
-        frames->remove(posicao);
-        frames->insere(posicao,frame);
-        ui->gridAdicionar->removeWidget(frame);
+    if(!frames->vazia()){
+      QString*  color = new QString("background: #68BC61;border-radius: 20px;");
+      frames->elemento(posicao)->changeColor(color);
+      delete color;
+      QTimer::singleShot(tempo -200, [=]() {
+          QString* corNormal = new QString("background: #D9D9D9;border-radius: 20px;");
+          frames->elemento(posicao)->changeColor(corNormal);
+          // Chama a função recursivamente para o próximo frame da lista
+
+      });
+        QTimer::singleShot(tempo, [=]() {
+            frames->insere(posicao,new Frame(-1));
+            ControlLista->atualizarGrid();
+            QTimer::singleShot(tempo, [=]() {
+                delete frames->remove(posicao);
+                frames->insere(posicao,frame);
+                ui->gridAdicionar->removeWidget(frame);
+                ControlLista->atualizarGrid();
+                ui->buttonInserir->setEnabled(true);
+                ui->buttonRemover->setEnabled(true);
+                ui->buttonBuscarPosicao->setEnabled(true);
+                ui->buttonBuscarValor->setEnabled(true);
+            });
+        });
+    }else{
+      QTimer::singleShot(tempo, [=]() {
+
+          frames->insere(posicao,frame);
+          ui->gridAdicionar->removeWidget(frame);
+          ControlLista->atualizarGrid();
+          ui->buttonInserir->setEnabled(true);
+          ui->buttonRemover->setEnabled(true);
+          ui->buttonBuscarPosicao->setEnabled(true);
+          ui->buttonBuscarValor->setEnabled(true);
+      });
+
+
+    }
+
         ControlLista->atualizarGrid();
-        ui->buttonInserir->setEnabled(true);
-        ui->buttonRemover->setEnabled(true);
-        ui->buttonBuscarPosicao->setEnabled(true);
-        ui->buttonBuscarValor->setEnabled(true);
-    });
+
+
 
 }
 void LDEJanela::adicionarFinal(Frame* frame,QGridLayout * grid,LDEFrame* frames,int posicaoAtual,int posicao){
@@ -475,7 +565,7 @@ void LDEJanela::adicionarViaFinal(Frame* frame,QGridLayout * grid,LDEFrame* fram
 
 
                         QTimer::singleShot(tempo, [=]() {
-                            frames->remove(posicao);
+                            delete frames->remove(posicao);
                             ControlLista->atualizarGrid();
                             frames->insere(posicao,frame);
                             ui->gridAdicionar->removeWidget(frame);

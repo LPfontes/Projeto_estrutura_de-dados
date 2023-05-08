@@ -38,20 +38,19 @@ resposta controllistaslde::adicionar(QString posicao,QString valor){
             pos = lista->tamanho() + 1;
             resposta.setMensagem("fim lista");
 
-        }else if(Posicao == lista->tamanho() + 1 ){
-                pos = lista->tamanho() + 1;
-                resposta.setMensagem("fim lista");
-            }else if(Posicao > lista->tamanho() / 2){
-                pos = Posicao;
-                resposta.setMensagem("via fim lista");
-
-            }else if(Posicao != 1){
-                pos = Posicao;
-                resposta.setMensagem("meio lista");
-            }else{
+        }else if(Posicao == 1){
                 pos = Posicao;
                 resposta.setMensagem("inicio lista");
-            }
+            }else if(Posicao == lista->tamanho() + 1 ){
+            pos = lista->tamanho() + 1;
+            resposta.setMensagem("fim lista");
+                }else if(Posicao > lista->tamanho() / 2){
+            pos = Posicao;
+            resposta.setMensagem("via fim lista");
+                }else{
+                        pos = Posicao;
+                      resposta.setMensagem("meio lista");
+                }
     }
 
     Frame * frame = new Frame(1);

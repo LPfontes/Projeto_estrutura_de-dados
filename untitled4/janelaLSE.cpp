@@ -273,7 +273,7 @@ void LSEJanela::adicionarFinal(Frame* frame,QGridLayout * grid,LSEFrame* frames,
 
     QString* color;
     if (posicaoAtual != posicao){
-        if(posicaoAtual == posicaoAnterior){
+       if(posicaoAtual == posicaoAnterior){
             color = new QString("background: #68BC61;border-radius: 20px;");
             frames->elemento(posicaoAtual)->changeColor(color);
             frames->insere(posicao,new Frame(-1));

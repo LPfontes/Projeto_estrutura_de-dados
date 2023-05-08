@@ -21,7 +21,8 @@ public:
     void on_button_BuscarPosicao_clicked();
 
 
-    void AlterarCorGridRemover(QString mensangem,LDEFrame* frames,int i,int index);
+    void RemoverViaInicio(QString mensangem,LDEFrame* frames,int i,int index);
+    void RemoverViaFim(QString mensangem,LDEFrame* frames,int i,int index);
 
     void adicionar(Frame* frame,QGridLayout * grid,LDEFrame* frames,int posicaoAtual,int posicaoAnterior,int posicao);
 

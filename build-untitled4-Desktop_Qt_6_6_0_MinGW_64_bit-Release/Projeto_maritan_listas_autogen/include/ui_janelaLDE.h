@@ -317,7 +317,7 @@ public:
         LDEJanela->setCentralWidget(centralwidget);
         menubar = new QMenuBar(LDEJanela);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1260, 17));
+        menubar->setGeometry(QRect(0, 0, 1260, 21));
         LDEJanela->setMenuBar(menubar);
         statusbar = new QStatusBar(LDEJanela);
         statusbar->setObjectName("statusbar");
