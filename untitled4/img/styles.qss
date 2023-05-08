@@ -1,151 +1,84 @@
 /* Padrao de BackGround para TODAS as Janelas */
-
 QMainWindow {
-position: relative;
-
-background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-    stop: 0 #2c3e50, stop: 1 #73c8a9);
-background-size: 300% 300%;
-
-
-width: 1080px;
-height: 720px;
+    position: relative;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+        stop: 0 #2c3e50, stop: 1 #73c8a9);
+    width: 1080px;
+    height: 720px;
 } 
 
-
-/*
-QMainWindow {
-    position: flex;
-    align-items: center;
-    justify-content: center;
-    height: 1080px;
-    weight: 720px;
-    background: qlineargradient(45deg, #2d6671, #5da093, #b7c4c6, #5cdcac, #9ce9db);
-} */
-
-/* Frame Central da Tela de Menu */
-QFrame {
-position: absolute;
-background-color: rgba(38, 141, 154, 0.45);
-border-radius: 20px;
+/* Frame/Quadrado Central da Tela de Menu */
+QFrame#frame {
+    position: relative;
+    background-color: rgba(38, 141, 154, 0.45);
+    border-radius: 20px;
 }
-
-QFrame#frameValorRemovido {
+/* ------------------------------------------------------------------------------------------- */
+/* Titulos das Paginas */
+QLabel#label, #titulo_pagina {
+    font-family: "Courier New";
+    font-weight: bold;
+    font-size: 35px;
+    color: white;
     background-color: none;
-    weight: 240px;
-    height: 30px;
 }
 
-/* Titulo do Menu */
-QLabel {
-font-family: "Courier New";
-font-weight: bold;
-font-size: 30px;
-color: #ADADAD;
-background-color: none;
-}
-
-/* Padrão para TODOS os botões */
-QPushButton {
-font-family: "Comic Sans MS";
-font-style: normal;
-font-weight: 400;
-font-size: 15px;
-line-height: 18px;
-text-align: center;
-border-radius: 20px;
-
-color: #FFFFFF;
-}
-
-QPushButton#buttonListaSeq {
-	text-color : #63d0e7;
-	background-color: #5edbaf;
+/* Botoes Menu Inicial */
+QPushButton#buttonListaSeq, #buttonLSE, #buttonLDE {
+    background-color: #3ec9a7;
+    text-color: black ; /* WTF */
+    font-family: "Comic Sans MS";
+    font-style: normal;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    border-radius: 20px;
     border-style: outset;
     border-width: 2px;
     border-color: beige;
 }
 
-QPushButton#buttonListaSeq:hover {
+QPushButton#buttonListaSeq:hover, #buttonLSE:hover, #buttonLDE:hover {
     background-color: #15e99d; /* Cor de fundo quando o mouse passa por cima */
     cursor: pointer; /* Transforma o cursor em uma mãozinha ao passar por cima */
 }
 
-QPushButton#buttonLSE {
-	text-color : #62e7ca;
-	background-color: #5edbaf;
-    border-style: outset;
-    border-width: 2px;
-    border-color: beige;
-}
-
-QPushButton#buttonLSE:hover {
-    background-color: #15e99d; /* Cor de fundo quando o mouse passa por cima */
-    cursor: pointer; /* Transforma o cursor em uma mãozinha ao passar por cima */
-}
-
-
-QPushButton#buttonLDE {
-	text-color : #60dbad;
-	background-color: #5edbaf;
-    border-style: outset;
-    border-width: 2px;
-    border-color: beige;
-}
-
-QPushButton#buttonLDE:hover {
-    background-color: #15e99d; /* Cor de fundo quando o mouse passa por cima */
-    cursor: pointer; /* Transforma o cursor em uma mãozinha ao passar por cima */
-}
-
+/* ----------------------------------------------------------------------------------------------- */
+/* Botao de Voltar */
 QPushButton#pushButtonVoltar {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 40px;
-    background-color: #007bff; /* Cor de fundo do botão */
+    background-color: rgba(38, 141, 154, 0.45);/* Cor de fundo do botão */
     color: #fff; /* Cor do texto do botão */
     font-size: 16px; /* Tamanho da fonte do texto do botão */
     text-align: center; /* Centralizar o texto vertical e horizontalmente */
-    line-height: 50px; /* Centralizar o texto verticalmente */
+    line-height: 40px; /* Centralizar o texto verticalmente */
     border: none; /* Remover a borda do botão */
     cursor: pointer; /* Alterar o cursor do mouse para ponteiro ao passar sobre o botão */
 } 
 
-QFrame#menu_dados {
+QPushButton#pushButtonVoltar:hover {
+    background-color: #15e99d;
+    cursor: pointer;
+}
+
+/* Frame que ilustra a caixa dos Dados e a Busca /// SEM USO */
+/*
+QFrame#menu_dados, menu_Busca {
     position: absolute;
     width: 250px;
     height: 110px;
     left: 76px;
     top: 214px;
-    background: #D9D9D9;
+    background: #00a0b0;
     border-radius: 20px;
 }
+*/
 
-QFrame#menu_Busca {
-    position: absolute;
-    width: 250px;
-    height: 260px;
-    left: 76px;
-    top: 214px;
-    background: #D9D9D9;
+/* Armazenamento das Caixas */
+QFrame#frameGrid /*, #frameAdicionar */ {
+    position: relative;
+    background-color: rgba(38, 141, 154, 0.35);
     border-radius: 20px;
-}
-
-
-QFrame#frameTitulo {
-background-color: none;
-}
-
-/* Titulo das Sub-janelas */
-QLabel#titulo_pagina {
-font-family: "Courier New";
-text-decoration: underline;
-font-weight: bold;
-font-size: 25px;
-color: white;
-
-}
-
-QFrame#frameAdicionar {
-
 }

@@ -24,10 +24,8 @@ ListaSeqJanela::ListaSeqJanela(QWidget *parent) : // construtor da ListaSeqJanel
     this->setIconSize(QSize(32, 32));
                                                             //ui->label->setPixmap(QPixmap(":/assets/img/icon.png")); exemplo de como adicionar uma imagens
     setFocus(); // para retirar o foco dos inputs
-    // css do titulo da pagina
-    ui->frameTitulo->setStyleSheet("font-family: 'Inter';font-style: normal;font-weight: 400;font-size: 50px;line-height: 73px;text-align: center;color: black;");
     //css do menu de dados
-    QString * css =new QString("position: absolute;width: 250px;height: 260px;left: 76px;top: 214px;background: #D9D9D9; border-radius: 20px;");
+    QString * css =new QString("position: absolute;width: 250px;height: 260px;left: 76px;top: 214px;background-color: #D9D9D9; border-radius: 20px; border-style: outset; border-width: 2px; border-color: beige;");
     ui->menu_dados->setStyleSheet(*css);
     ui->menu_Busca->setStyleSheet(*css);
 
@@ -49,7 +47,7 @@ ListaSeqJanela::ListaSeqJanela(QWidget *parent) : // construtor da ListaSeqJanel
     ui->input_posicao_busca->setPlaceholderText("Posição a ser buscada");
     ui->InputTamanhoLista->setPlaceholderText("Tamanho da lista");
     delete css;
-    css = new QString("QLineEdit{background: #68BC61;border-radius: 20px;font-family: 'Inter';font-style: normal;font-weight: 400;font-size: 15px;line-height: 18px;text-align: center;}QLineEdit:hover{background-color: white;color: black;}");
+    css = new QString("QLineEdit{background: #3ec9a7;border-radius: 20px;font-family: 'Comic Sans MS';font-style: normal;font-weight: 400;font-size: 15px;line-height: 18px;text-align: center;}QLineEdit:hover{background-color: white;color: black;}");
     //css dos inputs
     ui->frameInputNumero->setStyleSheet(*css);
     ui->frameInputPosicao->setStyleSheet(*css);
@@ -62,7 +60,7 @@ ListaSeqJanela::ListaSeqJanela(QWidget *parent) : // construtor da ListaSeqJanel
 
     delete css;
     //css dos butões
-    css = new QString("QPushButton { background: #7FA62C;border-radius: 10px;font-family: 'Inter';font-style: normal;font-weight: 400;font-size: 15px;line-height: 18px;text-align: center; } QPushButton:hover {background-color: white;color: black;}");
+    css = new QString("QPushButton { background: #3ec9a7;border-radius: 10px;font-family: 'Comic Sans MS';font-style: normal;font-weight: 400;font-size: 15px;line-height: 18px;text-align: center; } QPushButton:hover {background-color: white;color: black;}");
     ui->buttonInserir->setStyleSheet(*css);
     ui->buttonRemover->setStyleSheet(*css);
     ui->buttonBuscarValor->setStyleSheet(*css);
