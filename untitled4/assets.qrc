@@ -3,5 +3,6 @@
         <file>img/lde.png</file>
         <file>img/list.png</file>
         <file>img/lse.png</file>
+        <file>img/styles.qss</file>
     </qresource>
 </RCC>

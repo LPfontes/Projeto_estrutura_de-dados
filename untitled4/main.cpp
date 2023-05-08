@@ -3,6 +3,7 @@
 #include <QApplication>
 #include <QIcon>
 #include <QDebug>
+#include <QFile>
 
 int main(int argc, char *argv[])
 {
