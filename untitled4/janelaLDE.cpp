@@ -13,6 +13,10 @@ LDEJanela::LDEJanela(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setWindowTitle("Lista Duplamente Encadeada");
+    this->setWindowIcon(QIcon(":/assets/img/lde.png"));
+    this->setIconSize(QSize(32, 32));
+
     setFocus(); // para retirar o foco dos inputs
     //css do menu de dados
     QString * css =new QString("position: absolute;width: 250px;height: 260px;left: 76px;top: 214px;background: #D9D9D9; border-radius: 20px; border-style: outset; border-width: 2px; border-color: beige;");

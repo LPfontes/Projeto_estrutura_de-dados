@@ -97,9 +97,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>400</y>
-      <width>281</width>
-      <height>301</height>
+      <y>360</y>
+      <width>261</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -114,10 +114,10 @@
     <widget class="QWidget" name="verticalLayoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>20</y>
+       <x>20</x>
+       <y>10</y>
        <width>221</width>
-       <height>261</height>
+       <height>251</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="Layout_menu_dados_2">
@@ -337,9 +337,15 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>221</width>
-             <height>41</height>
+             <width>220</width>
+             <height>70</height>
             </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
            <property name="text">
             <string/>
@@ -360,8 +366,8 @@
      <rect>
       <x>30</x>
       <y>110</y>
-      <width>281</width>
-      <height>261</height>
+      <width>261</width>
+      <height>241</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -376,10 +382,10 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>10</y>
        <width>221</width>
-       <height>231</height>
+       <height>221</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="Layout_menu_dados">
@@ -544,8 +550,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>221</width>
-             <height>61</height>
+             <width>220</width>
+             <height>74</height>
             </rect>
            </property>
            <property name="text">
@@ -624,7 +630,7 @@
      <x>0</x>
      <y>0</y>
      <width>1260</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

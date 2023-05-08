@@ -106,13 +106,40 @@
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
+   <widget class="QFrame" name="frameAdicionar">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>110</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>121</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridAdicionar"/>
+    </widget>
+   </widget>
    <widget class="QFrame" name="menu_dados">
     <property name="geometry">
      <rect>
       <x>30</x>
       <y>120</y>
-      <width>281</width>
-      <height>261</height>
+      <width>261</width>
+      <height>241</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -127,7 +154,7 @@
     <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>10</y>
        <width>221</width>
        <height>221</height>
@@ -295,8 +322,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>221</width>
-             <height>51</height>
+             <width>220</width>
+             <height>74</height>
             </rect>
            </property>
            <property name="text">
@@ -317,9 +344,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>400</y>
-      <width>281</width>
-      <height>301</height>
+      <y>380</y>
+      <width>261</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -334,10 +361,10 @@
     <widget class="QWidget" name="verticalLayoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>20</y>
+       <x>20</x>
+       <y>10</y>
        <width>221</width>
-       <height>261</height>
+       <height>251</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="Layout_menu_dados_2">
@@ -404,7 +431,7 @@
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
@@ -500,9 +527,9 @@
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <spacer name="horizontalSpacer_4">
+         <spacer name="horizontalSpacer_3">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -528,7 +555,7 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_3">
+         <spacer name="horizontalSpacer_4">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -557,9 +584,15 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>221</width>
-             <height>51</height>
+             <width>220</width>
+             <height>68</height>
             </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
            <property name="text">
             <string/>
@@ -573,33 +606,6 @@
        </layout>
       </item>
      </layout>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="frameAdicionar">
-    <property name="geometry">
-     <rect>
-      <x>690</x>
-      <y>110</y>
-      <width>120</width>
-      <height>80</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QWidget" name="gridLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>121</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <layout class="QGridLayout" name="gridAdicionar"/>
     </widget>
    </widget>
   </widget>

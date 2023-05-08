@@ -14,6 +14,9 @@ LSEJanela::LSEJanela(QWidget *parent) :
     ui(new Ui::LSEJanela)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Lista Simplesmente Encadeada");
+    this->setWindowIcon(QIcon(":/assets/img/lse.png"));
+    this->setIconSize(QSize(32, 32));
 
     setFocus(); // para retirar o foco dos inputs
     //css do menu de dados

@@ -19,7 +19,7 @@ Frame::Frame(int index ,QWidget *parent ) : QFrame(parent) { // criando um Frame
         labelPosicao = new QLabel(QString::number(index));// criando label da posicao
         labelPosicao->setStyleSheet("color: #68BC61;font-family: 'Inter';font-style: normal;font-weight: 400;font-size: 14px;line-height: 16px;text-align: center;");
         label = new QLabel("vazio");// criando label do valor
-        label->setStyleSheet("color: #ADADAD;font-family: 'Inter';font-style: normal;font-weight: 400;font-size: 14px;line-height: 16px;text-align: center;");
+        label->setStyleSheet("color: Black;font-family: 'Inter';font-style: normal;font-weight: 400;font-size: 14px;line-height: 16px;text-align: center;");
         layout->addWidget(labelPosicao);// adicionado labelPosicao ao layout
         layout->addWidget(label); // adicionado label ao layout
         layout->setAlignment(Qt::AlignVCenter); // adicionado o tipo de alinhamento do layout centralizando os objetos verticamente
