@@ -1,6 +1,8 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QIcon>
+#include <QFile>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -13,7 +15,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->buttonLDE, &QPushButton::clicked, this, &MainWindow::onbuttonListaLDE_clicked);
     this->setWindowTitle("Listas ");
     this->setWindowIcon(QIcon(":/assets/img/list.png"));
-
+    QString qssFilePath = QString(":/assets/img/styles.qss") ;
+    //    QString qssFilePath = QCoreApplication::applicationDirPath() + "/styles.qss";
+    QFile qssFile( qssFilePath );
+    qssFile.open(QFile::ReadOnly);
+    styleSheet =new QString(QLatin1String(qssFile.readAll())) ;
+    this->setStyleSheet(*styleSheet);
 
 }
 MainWindow::~MainWindow()
@@ -26,6 +33,7 @@ MainWindow::~MainWindow()
 void MainWindow::onbuttonListaSeq_clicked()
 {
     ListaSeqJanela *janelaSeq  = new ListaSeqJanela(); // criando uma nova janela da lista sequencial
+    janelaSeq->setStyleSheet(*styleSheet);
     janelaSeq->setAttribute(Qt::WA_DeleteOnClose);
     QObject::connect(janelaSeq, &QMainWindow::destroyed, this, &QMainWindow::show); //conectado a nova janela a janela principal caso a nova janela seja fechada a janela principal reaparece.
     janelaSeq ->show();
@@ -34,6 +42,8 @@ void MainWindow::onbuttonListaSeq_clicked()
 void MainWindow::onbuttonListaLDE_clicked()
 {
     LDEJanela *janelaLDE  = new LDEJanela(); // criando uma nova janela da lista sequencial
+
+    janelaLDE->setStyleSheet(*styleSheet);
     janelaLDE->setAttribute(Qt::WA_DeleteOnClose);
     QObject::connect(janelaLDE, &QMainWindow::destroyed, this, &QMainWindow::show); //conectado a nova janela a janela principal caso a nova janela seja fechada a janela principal reaparece.
     janelaLDE ->show();
@@ -42,6 +52,7 @@ void MainWindow::onbuttonListaLDE_clicked()
 void MainWindow::onbuttonListaLSE_clicked()
 {
     LSEJanela *janelaLSE  = new LSEJanela(); // criando uma nova janela da lista sequencial
+    janelaLSE->setStyleSheet(*styleSheet);
     janelaLSE->setAttribute(Qt::WA_DeleteOnClose);
     QObject::connect(janelaLSE, &QMainWindow::destroyed, this, &QMainWindow::show); //conectado a nova janela a janela principal caso a nova janela seja fechada a janela principal reaparece.
     janelaLSE ->show();

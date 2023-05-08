@@ -26,6 +26,7 @@ public slots:
     void onbuttonListaLSE_clicked();
 private:
     Ui::MainWindow *ui;
+    QString* styleSheet;
 };
 
 #endif // MAINWINDOW_H
