@@ -181,16 +181,19 @@ void LSEJanela::AlterarCorGridRemover(QString mensangem,LSEFrame* frames,int i,i
         if(index == i){
             color = new QString("background: #F55348;border-radius: 20px;");
             frames->elemento(i)->changeColor(color);
+            ControlLista->atualizarGrid();
             delete color;
         }else{
             color = new QString("background: #4FC2FA;border-radius: 20px;");
             frames->elemento(i)->changeColor(color);
+            ControlLista->atualizarGrid();
             delete color;
 
         }
         QTimer::singleShot(tempo, [=]() {
             QString* corNormal = new QString("background: #D9D9D9;border-radius: 20px;");
             frames->elemento(i)->changeColor(corNormal);
+            ControlLista->atualizarGrid();
             // Chama a função recursivamente para o próximo frame da lista
 
                 AlterarCorGridRemover(mensangem,frames, i+1,index);
@@ -220,6 +223,7 @@ void LSEJanela::adicionar(Frame* frame,QGridLayout * grid,LSEFrame* frames,int p
             ControlLista->atualizarGrid();
             QTimer::singleShot(tempo, [=]() {
                 frames->remove(posicao);
+                ControlLista->atualizarGrid();
                 frames->insere(posicao,frame);
                 ui->gridAdicionar->removeWidget(frame);
                 ControlLista->atualizarGrid();
@@ -319,7 +323,7 @@ void LSEJanela::AlterarCorGridProcura(QString mensangem,LSEFrame* frames, int i,
             QTimer::singleShot(tempo, [=]() {
                 QString* corNormal = new QString("background: #D9D9D9;border-radius: 20px;");
                 frames->elemento(i)->changeColor(corNormal);
-
+                ControlLista->atualizarGrid();
 
             });
         }else{
@@ -327,6 +331,7 @@ void LSEJanela::AlterarCorGridProcura(QString mensangem,LSEFrame* frames, int i,
             QTimer::singleShot(tempo, [=]() {
                 QString* corNormal = new QString("background: #D9D9D9;border-radius: 20px;");
                 frames->elemento(i)->changeColor(corNormal);
+                ControlLista->atualizarGrid();
                 // Chama a função recursivamente para o próximo frame da lista
                 AlterarCorGridProcura(mensangem,frames, i+1,index);
                 if(i == frames->tamanho()){
@@ -335,6 +340,7 @@ void LSEJanela::AlterarCorGridProcura(QString mensangem,LSEFrame* frames, int i,
             });
         }
         frames->elemento(i)->changeColor(color);
+        ControlLista->atualizarGrid();
         delete color;
 
     }

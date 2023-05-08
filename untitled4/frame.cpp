@@ -25,6 +25,8 @@ Frame::Frame(int index ,QWidget *parent ) : QFrame(parent) { // criando um Frame
     }else{
         setFixedSize(90,60);
         labelPosicao = new QLabel(QString::number(index));
+        css = new QString("background: rgba(0, 0, 0, 0);");
+        setStyleSheet(*css);
     }
     }
 

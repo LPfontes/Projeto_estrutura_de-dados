@@ -23,7 +23,7 @@ public:
 
     void AlterarCorGridRemover(QString mensangem,LDEFrame* frames,int i,int index);
 
-    void adicionar(Frame* frame,QGridLayout * grid,LDEFrame* frames,int i,int index,int posicao);
+    void adicionar(Frame* frame,QGridLayout * grid,LDEFrame* frames,int posicaoAtual,int posicaoAnterior,int posicao);
 
     void adicionarinicio(Frame* frame,QGridLayout * grid,LDEFrame* frames,int posicao);
 

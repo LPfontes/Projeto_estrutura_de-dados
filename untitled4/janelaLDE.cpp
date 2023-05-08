@@ -263,42 +263,62 @@ void LDEJanela::AlterarCorGridRemoverFim(QString mensangem,LDEFrame* frames,int 
 
 }
 
-void LDEJanela::adicionar(Frame* frame,QGridLayout * grid,LDEFrame* frames,int i,int index,int posicao){
+void LDEJanela::adicionar(Frame* frame,QGridLayout * grid,LDEFrame* frames,int posicaoAtual,int posicaoAnterior,int posicao){
     int tempo = 500;
 
     QString* color;
-    if (i <= index){
-        if(index == i){
-            color = new QString("background: #68BC61;border-radius: 20px;");
-            frames->elemento(i)->changeColor(color);
-            frames->insere(posicao,new Frame(-1));
-            ControlLista->atualizarGrid();
+    if(posicaoAtual != posicao){
+        if(posicaoAtual == posicaoAnterior){
             QTimer::singleShot(tempo, [=]() {
-                frames->remove(posicao);
-                frames->insere(posicao,frame);
-                ui->gridAdicionar->removeWidget(frame);
+                QString* color = new QString("background: #68BC61;border-radius: 20px;");
+                frames->elemento(posicaoAtual)->changeColor(color);
+                delete color;
                 ControlLista->atualizarGrid();
+                QTimer::singleShot(tempo, [=]() {
+                    QString* corNormal = new QString("background: #D9D9D9;border-radius: 20px;");
+                    frames->elemento(posicaoAtual)->changeColor(corNormal);
+
+                    QTimer::singleShot(tempo, [=]() {
+                        frames->insere(posicao,new Frame(-1));
+                        ControlLista->atualizarGrid();
+
+                        QTimer::singleShot(tempo, [=]() {
+                            frames->remove(posicao);
+                            ControlLista->atualizarGrid();
+                            frames->insere(posicao,frame);
+                            ui->gridAdicionar->removeWidget(frame);
+                            ControlLista->atualizarGrid();
+                            QTimer::singleShot(tempo, [=]() {
+
+                             adicionar(frame,grid,frames,posicaoAtual +1,posicaoAnterior,posicao);
+
+                            });
+                        });
+                    });
+                });
             });
-            delete color;
+
         }else{
             color = new QString("background: #4FC2FA;border-radius: 20px;");
-            frames->elemento(i)->changeColor(color);
+            frames->elemento(posicaoAtual)->changeColor(color);
             delete color;
+            QTimer::singleShot(tempo, [=]() {
+                QString* corNormal = new QString("background: #D9D9D9;border-radius: 20px;");
+                frames->elemento(posicaoAtual)->changeColor(corNormal);
+                // Chama a função recursivamente para o próximo frame da lista
+                  adicionar(frame,grid,frames,posicaoAtual+1,posicaoAnterior,posicao);
 
+
+            });
         }
-        QTimer::singleShot(tempo, [=]() {
-            QString* corNormal = new QString("background: #D9D9D9;border-radius: 20px;");
-            frames->elemento(i)->changeColor(corNormal);
-            // Chama a função recursivamente para o próximo frame da lista
-            adicionar(frame,grid,frames,i+1,index,posicao);
 
-
-        });
     }else{
         ui->buttonInserir->setEnabled(true);
         ui->buttonRemover->setEnabled(true);
         ui->buttonBuscarPosicao->setEnabled(true);
         ui->buttonBuscarValor->setEnabled(true);
+        ControlLista->atualizarGrid();
+
     }
 
 }
@@ -452,8 +472,9 @@ void LDEJanela::adicionarViaFinal(Frame* frame,QGridLayout * grid,LDEFrame* fram
                         ControlLista->atualizarGrid();
 
 
-                        QTimer::singleShot(tempo+200, [=]() {
+                        QTimer::singleShot(tempo, [=]() {
                             frames->remove(posicao);
+                            ControlLista->atualizarGrid();
                             frames->insere(posicao,frame);
                             ui->gridAdicionar->removeWidget(frame);
                             ControlLista->atualizarGrid();
